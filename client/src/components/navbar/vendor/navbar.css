@@ -1,0 +1,23 @@
+.link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 5px; /* Height of the border */
+    margin-bottom: -2px; /* Compensate for border width to avoid layout shift */
+    transition: color 0.4s ease; /* Smooth transition for link color */
+  }
+  
+  .link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px; /* Height of the border */
+    background-color: rgb(46, 16, 101); /* Color of the border */
+    transition: width 0.4s ease; /* Smooth transition for border width */
+  }
+  
+  .link.active::before {
+    width: 100%; /* Full width of the link */
+  }
+  

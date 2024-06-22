@@ -1,0 +1,13 @@
+.navbar-container {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 40;
+  background-size: cover;
+  background-position: center;
+  height: 80px; /* Adjust height as needed */
+}
+
+.navbar-container.sticky {
+  position: fixed;
+}

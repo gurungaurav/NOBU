@@ -1,0 +1,19 @@
+200 OK: This status code indicates a successful HTTP request. It's commonly used for successful GET requests.
+
+201 Created: Used when a new resource is successfully created. Typically returned after a POST request.
+
+204 No Content: Indicates that the request has been successfully processed, but there's no content to return in the response. Often used for DELETE requests.
+
+400 Bad Request: This status code is returned when the server cannot understand the client's request. It is used for various client errors, such as invalid input.
+
+401 Unauthorized: Indicates that the client's request is missing or has incorrect authentication credentials. The client should authenticate itself to get the requested response.
+
+403 Forbidden: This status code is returned when the server understands the request but refuses to fulfill it. Like when user is not verified It's often used for access control errors.
+
+404 Not Found: Signifies that the requested resource is not found on the server.
+
+405 Method Not Allowed: Indicates that the HTTP method used in the request is not supported for the requested resource.
+
+409 is for already existed resources or values 
+
+500 Internal Server Error: This status code indicates that an unexpected condition was encountered on the server, preventing it from fulfilling the request.

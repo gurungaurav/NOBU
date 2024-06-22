@@ -1,0 +1,20 @@
+.link-border {
+    border-bottom-width: 2px;
+    border-bottom-color: transparent;
+    position: relative;
+  }
+  
+  .link-border::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: rgb(63, 3, 123);
+    transition: width 0.3s ease-in-out;
+  }
+  
+  .link-border-active::after {
+    width: 100%;
+  }

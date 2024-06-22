@@ -1,0 +1,391 @@
+[33mcommit 17601dc782ceb4a119729d2f3c2b8dedc83fb394[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Merge: 58e9c16 92b1883
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Jun 11 17:51:52 2024 +0545
+
+    Merge branch 'main' of github.com:Jonancy/Nobu_Client
+
+[33mcommit 58e9c162a225f7d4ca6ba631febe9a030d4f4e7a[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Jun 11 17:40:46 2024 +0545
+
+    final
+
+[33mcommit 92b1883e432050eac5c0da6bef794cdddea09bb5[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Apr 28 10:39:42 2024 +0545
+
+    final push ;
+    ;
+
+[33mcommit 8956461281497057fc1d60fb1c8c2687031b509e[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Apr 20 22:52:15 2024 +0545
+
+    ui changes
+
+[33mcommit f30f86e4a08d97d9a1255bd89c36d1dbbd41c445[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Apr 18 23:14:31 2024 +0545
+
+    final huna lacha
+
+[33mcommit 046fbc8812ae985cf901a52e481d02688f4d10a8[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Mon Apr 15 23:00:27 2024 +0545
+
+    filter
+
+[33mcommit 92d0c2d4dbe325b8508e96cf8fdb92e096457501[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Apr 13 19:27:56 2024 +0545
+
+    many ui changes
+
+[33mcommit 0a3db4f7ce2bb0e44c8631b109dc4424961c2572[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Apr 9 23:17:10 2024 +0545
+
+    heh
+
+[33mcommit 5e90b5213339b9da56f03232af702b18d782c53d[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Apr 9 01:19:59 2024 +0545
+
+    dashboard ui changes
+
+[33mcommit 70da6dd3fd73418b1e66c730d25c2a2041b0b29b[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Apr 7 01:05:44 2024 +0545
+
+    skeletons and ui changes
+
+[33mcommit 0438858a958d499ba789b758c284447657eed31e[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Apr 6 14:28:32 2024 +0545
+
+    ui changes
+
+[33mcommit b4ee02155946b7725deeda9b2600e409e17dbea3[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Apr 4 23:48:37 2024 +0545
+
+    esewa
+
+[33mcommit 1de0768b459bb98f78b66921b70995e8e9ef8916[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Wed Apr 3 23:57:56 2024 +0545
+
+    laa
+
+[33mcommit 45314a3287a3a8a5e73c24e5efd2e9f792b2bcbf[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Mon Apr 1 23:56:45 2024 +0545
+
+    support chat
+
+[33mcommit c4f28c302aaf4b7b833e75186ac9f8c05452924a[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Mar 31 22:54:18 2024 +0545
+
+    ss
+
+[33mcommit ba982b40d4ee1479b470930a24555676d814a23c[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Mar 30 17:51:48 2024 +0545
+
+    refund
+
+[33mcommit 8ac0031b06b51c13c374aba868ee9d9db8b9af78[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Mar 28 22:50:16 2024 +0545
+
+    many changes
+
+[33mcommit 416bd7ca4df4598dc3644b0d7c1acdb8bd0d4049[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Mar 28 14:46:02 2024 +0545
+
+    many changes
+
+[33mcommit 712e39cc9265ff20264582d5644d95890f22af13[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Mon Mar 25 22:40:42 2024 +0545
+
+    ka
+
+[33mcommit 5ca4f75c3cd4e9e25397afd5203aa92bc2e73919[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Mar 24 22:09:15 2024 +0545
+
+    jaja
+
+[33mcommit c79b966ee7947afeceb037cf9e8f10000c3369ef[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Mar 23 23:10:09 2024 +0545
+
+    back
+
+[33mcommit e4ed43bcdb1d789d5571c34fe1b8c09a08310bc1[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Mar 16 23:57:23 2024 +0545
+
+    testing
+
+[33mcommit c30194ad75b5d484cf21a81906ce8f220d18f118[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Mar 14 23:43:11 2024 +0545
+
+    halka
+
+[33mcommit a9e362dcd3ecea03d5d557fad2b395b5301a0185[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Mar 12 23:11:42 2024 +0545
+
+    aye ma hehe
+
+[33mcommit db20fa61e6ad0c3a545ca1109e1f0af3fe705c80[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Wed Mar 6 20:42:34 2024 +0545
+
+    dash
+
+[33mcommit 9daa52c036c860d95eb92fe7fe2ec13fa5d171f9[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Mon Mar 4 20:37:43 2024 +0545
+
+    cron
+
+[33mcommit 8236be46034bb7235dca7210e5bbc76fc2d8fdbe[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Mar 3 23:35:28 2024 +0545
+
+    h
+
+[33mcommit 92b45ed8f9dc5e7d45577a23f609a98cd72ab313[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Mar 3 00:41:47 2024 +0545
+
+    hehe
+
+[33mcommit 6efcbc5348202676f9086505ddbc247d656a2329[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Feb 29 10:57:47 2024 +0545
+
+    dashbaord vendor
+
+[33mcommit 39d490a22bfa0959ba34e0b12d7d3545a155a6f4[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Feb 27 23:24:05 2024 +0545
+
+    many changes
+
+[33mcommit d6beb908bd0418ec188ae1fcafc312f6d679d49b[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Feb 25 23:01:09 2024 +0545
+
+    pdf ra refund halka
+
+[33mcommit eb3cb4effde684151a21f49d0a9d0f41ed8e37f1[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Feb 24 23:10:31 2024 +0545
+
+    ui changes
+
+[33mcommit 50903e4029836bb989a5a35ea8c2d575cbfe7198[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Feb 24 12:58:47 2024 +0545
+
+    several ui changes
+
+[33mcommit 17d260127804e4ea1584e75b998d21e9e49ccdb1[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Feb 22 22:33:41 2024 +0545
+
+    reservation payment success
+
+[33mcommit 3daaf369c7fdfc59cf9e0f51636ee0b90f3ded5e[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Wed Feb 21 23:27:58 2024 +0545
+
+    multi form bookings
+
+[33mcommit eb8cecbe29c71e49d0d9e7e362b205ab47aec911[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Mon Feb 19 23:05:19 2024 +0545
+
+    halka dash board;
+
+[33mcommit c54ace6659690f6c7212178c473157a2de7c9407[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Feb 18 22:58:20 2024 +0545
+
+    halka ui
+
+[33mcommit b000c460aa805ecc6d17eb5893844b2470bba367[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Feb 17 21:52:46 2024 +0545
+
+    proper multi form
+
+[33mcommit bd15b9d3fae137d9a89dbc8cda4f13a7ecac60db[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Feb 15 00:50:07 2024 +0545
+
+    proper multi step form vendor registration and other major changes on ui
+
+[33mcommit 319f85aa2cbd2e9ad0f1d54593ed3fc4b2441cbb[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Wed Feb 14 01:01:39 2024 +0545
+
+    halka dash
+
+[33mcommit 2e5e0e4cbaeff8a6ad60a556d73a1570250f5adf[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Feb 11 23:06:14 2024 +0545
+
+    added some features
+
+[33mcommit 4fec4f3223cc4c534e13d6a0c81ff03b5df10e42[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Feb 11 00:29:03 2024 +0545
+
+    filter room changes v4
+
+[33mcommit ba3aaa930097890b77b510b886fcdfd5b50cb98a[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Fri Feb 9 13:57:33 2024 +0545
+
+    halka
+
+[33mcommit 3106b7f23da81ddba5211c4bce0302b2ce4dbfa9[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Feb 8 23:41:09 2024 +0545
+
+    khalti added
+
+[33mcommit 1181b26601311e56d6ea77153c79873f71f54664[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Wed Feb 7 23:40:07 2024 +0545
+
+    filter with url , khalti halka
+
+[33mcommit df102a3c953159b06722efecc4bf267bd309c5ff[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Feb 6 13:10:05 2024 +0545
+
+    halka bookings
+
+[33mcommit 0f9a2a99d4e865480859048a2b9c020bfb9e52ce[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Mon Feb 5 22:39:03 2024 +0545
+
+    chat success
+
+[33mcommit 479291ebad64910e039719fd90ccd89ef659b2dc[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Feb 4 22:36:32 2024 +0545
+
+    chat hehe
+
+[33mcommit 1acd31791653f1ecb6d7785cfda30e9c34da9536[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Jan 30 20:15:20 2024 +0545
+
+    halka filters
+
+[33mcommit 461ea4a53416c09889f0962050eee90b0aa58152[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Jan 25 23:37:06 2024 +0545
+
+    hotel filter 1
+
+[33mcommit 9792db64d10f59a84602fc07be9b3e830b8109b8[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Wed Jan 24 21:16:59 2024 +0545
+
+    hotel filter halka
+
+[33mcommit 373e4e58943892309eac8cab833de3f896a7b9a2[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Jan 23 21:37:16 2024 +0545
+
+    reviews and blogs
+
+[33mcommit c56898aa4f08a7bc5508f2397f0fe3aad40a05e9[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sun Jan 21 12:48:02 2024 +0545
+
+    changes
+
+[33mcommit 5b876fff39f6a11fec350b158ad41145ab71d506[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Fri Dec 29 22:19:47 2023 +0545
+
+    hehe;
+
+[33mcommit 049decb02599ee013fae4d320ec2961f8b150b69[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Dec 26 21:01:05 2023 +0545
+
+    ma
+
+[33mcommit 262846dd39a07e2dc8624ebe5622cd7ec8294b45[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Dec 23 18:35:17 2023 +0545
+
+    hhe
+
+[33mcommit 3c76a7156f70e3f358d321fbc982b21963b914db[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Wed Dec 20 16:28:27 2023 +0545
+
+    admin
+
+[33mcommit b9f58eb00aa0080119064261dd928341db530369[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Dec 19 21:28:41 2023 +0545
+
+    back
+
+[33mcommit 0ee15fa63e835dee46bf38103f2f06346b9aa000[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Nov 21 12:27:59 2023 +0545
+
+    passwordReset Lazy,Loader,Suspense
+
+[33mcommit 2684f319369b2192749cf47d0c68365ea3c8474d[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Mon Nov 13 16:21:40 2023 +0545
+
+    regi form
+
+[33mcommit 78f7b28c8fe2252c89dc89aab3b92aa8d86f4933[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Sat Nov 11 23:33:54 2023 +0545
+
+    routes and encrypt...
+
+[33mcommit 7bea1d85bc02e86a127ba522aca1c4306511720b[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Thu Nov 9 01:05:40 2023 +0545
+
+    routes auth
+
+[33mcommit 0c17155e68aa2f64f18fa3d8fdc97a7e134e6e45[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Tue Nov 7 13:40:48 2023 +0545
+
+    encrypt localStorage
+
+[33mcommit 9114d1c24f6f4a6a0bccfa18dd256e76f2beceda[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Mon Nov 6 13:16:48 2023 +0545
+
+    login
+
+[33mcommit 849f1601cdc43e5e7743f5b714fa6b027dbe3a84[m
+Author: Gaurav <gurungg113@gmail.com>
+Date:   Mon Nov 6 00:06:17 2023 +0545
+
+    register
