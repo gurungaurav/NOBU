@@ -60,204 +60,254 @@ export default function ProfileMain() {
   };
 
   return (
-    <div className=" flex justify-center items-center relative">
+    <div className="min-h-screen bg-gray-50">
       <Dialog
-        className="absolute w-full h-full  "
-        style={{ backgroundColor: "transparent" }}
+        className="z-50"
         open={isDialogOpen}
         onClose={() => setIsDialogOpen(false)}
-        maxWidth="lg"
+        maxWidth="md"
+        fullWidth
       >
-        <div className=" flex  items-center ">
+        <div className="flex justify-center items-center p-4">
           <img
-            className=" h-[40rem]  object-cover"
+            className="max-h-96 sm:max-h-[500px] lg:max-h-[600px] w-full object-contain rounded-lg"
             src={user.profile_picture}
             alt="Profile"
           />
         </div>
       </Dialog>
-      <div className="p-4 flex gap-6 w-[80%] ">
-        <div className="shadow-lg bg-gray-300 p-4 rounded-lg px-6  sticky top-28 h-fit z-30">
-          <div className="flex flex-col gap-3">
-            <div className="flex justify-center items-center ">
-              <div
-                className="w-[10rem] h-[10rem] rounded-full cursor-pointer hover:opacity-90"
-                onClick={viewUserImage}
-              >
-                <img
-                  className="w-full h-full  rounded-full object-cover"
-                  src={user.profile_picture}
-                  alt="Profile"
-                />
+
+      <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
+            {/* Profile Sidebar */}
+            <div className="lg:w-80 xl:w-96 flex-shrink-0">
+              <div className="bg-white shadow-lg rounded-xl p-4 sm:p-6 lg:sticky lg:top-28">
+                <div className="flex flex-col gap-4 sm:gap-6">
+                  {/* Profile Image */}
+                  <div className="flex justify-center">
+                    <div
+                      className="w-24 h-24 sm:w-32 sm:h-32 lg:w-40 lg:h-40 rounded-full cursor-pointer hover:opacity-90 transition-opacity shadow-lg"
+                      onClick={viewUserImage}
+                    >
+                      <img
+                        className="w-full h-full rounded-full object-cover border-4 border-white shadow-md"
+                        src={user.profile_picture}
+                        alt="Profile"
+                      />
+                    </div>
+                  </div>
+
+                  {/* User Details */}
+                  <div className="space-y-3">
+                    <div className="text-center lg:text-left">
+                      <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">
+                        {user.user_name}
+                      </h2>
+                      <p className="text-sm text-gray-600 capitalize">
+                        {user.roles}
+                      </p>
+                    </div>
+
+                    <div className="space-y-2 text-sm">
+                      <div className="flex flex-col sm:flex-row lg:flex-col gap-1">
+                        <span className="font-semibold text-gray-700">
+                          Email:
+                        </span>
+                        <span className="text-gray-600 break-all">
+                          {user.email}
+                        </span>
+                      </div>
+                      <div className="flex flex-col sm:flex-row lg:flex-col gap-1">
+                        <span className="font-semibold text-gray-700">
+                          Phone:
+                        </span>
+                        <span className="text-gray-600">
+                          {user.phone_number}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Verification Status */}
+                  <div className="space-y-3">
+                    {user?.verified ? (
+                      <div className="flex items-center gap-2 p-3 bg-green-50 rounded-lg border border-green-200">
+                        <MdVerified className="text-green-600 text-xl flex-shrink-0" />
+                        <span className="text-sm font-medium text-green-800">
+                          Email verified
+                        </span>
+                      </div>
+                    ) : (
+                      <div className="space-y-3">
+                        <div className="flex items-center gap-2 p-3 bg-red-50 rounded-lg border border-red-200">
+                          <div className="p-1.5 rounded-full bg-red-600 text-white flex-shrink-0">
+                            <RxCross1 className="text-xs" />
+                          </div>
+                          <span className="text-sm font-medium text-red-800">
+                            Email not verified
+                          </span>
+                        </div>
+                        <Alert
+                          variant="outlined"
+                          severity="error"
+                          className="text-xs"
+                        >
+                          Please verify your account! Without verifying your
+                          account you will miss the provided features! Click
+                          below to send email verification.
+                        </Alert>
+                        <button
+                          onClick={verifyUser}
+                          className="w-full bg-violet-950 hover:bg-violet-800 text-white font-medium py-2.5 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
+                        >
+                          Verify Email
+                        </button>
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Join Date and Edit Profile */}
+                  <div className="space-y-3 pt-3 border-t border-gray-200">
+                    <p className="text-xs sm:text-sm text-gray-500 text-center lg:text-left">
+                      Member since {formattedDate}
+                    </p>
+
+                    {user?.verified && (
+                      <Menu as="div" className="relative">
+                        <Menu.Button className="w-full bg-violet-950 hover:bg-violet-800 text-white font-medium py-2.5 px-4 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2">
+                          Edit Profile
+                        </Menu.Button>
+                        <Transition
+                          as={React.Fragment}
+                          enter="transition ease-out duration-100"
+                          enterFrom="transform opacity-0 scale-95"
+                          enterTo="transform opacity-100 scale-100"
+                          leave="transition ease-in duration-75"
+                          leaveFrom="transform opacity-100 scale-100"
+                          leaveTo="transform opacity-0 scale-95"
+                        >
+                          <Menu.Items className="absolute right-0 mt-2 w-full origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-10">
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link
+                                  to={`/profile/${user_id}/editProfile`}
+                                  className={`${
+                                    active
+                                      ? "bg-gray-50 text-gray-900"
+                                      : "text-gray-700"
+                                  } block px-4 py-3 text-sm font-medium transition-colors`}
+                                >
+                                  Change user details
+                                </Link>
+                              )}
+                            </Menu.Item>
+                            <Menu.Item>
+                              {({ active }) => (
+                                <Link
+                                  to={`/profile/${user_id}/editPassword`}
+                                  className={`${
+                                    active
+                                      ? "bg-gray-50 text-gray-900"
+                                      : "text-gray-700"
+                                  } block px-4 py-3 text-sm font-medium transition-colors`}
+                                >
+                                  Change password
+                                </Link>
+                              )}
+                            </Menu.Item>
+                          </Menu.Items>
+                        </Transition>
+                      </Menu>
+                    )}
+                  </div>
+                </div>
               </div>
             </div>
-            <div className=" flex flex-col gap-3 text-sm">
-              <p>
-                <strong>Name: </strong>
-                {user.user_name}
-              </p>
-              <p>
-                <strong>Email: </strong>
-                {user.email}
-              </p>
-              <p>
-                <strong>Phone Number: </strong>
-                {user.phone_number}
-              </p>
-            </div>
-            <div className=" font-semibold">
-              <p>
-                {user.user_name} - {user.roles}
-              </p>
-            </div>
-            <div className="flex items-center gap-2">
-              {user?.verified ? (
-                <>
-                  <MdVerified className="text-blue-500 text-2xl" />
-                  <p>Email verified</p>
-                </>
-              ) : (
-                <div className="flex flex-col gap-2">
-                  <div className="flex gap-4 items-center">
-                    <div className="p-2 rounded-full bg-red-600 text-white">
-                      <RxCross1 />
-                    </div>
-                    <p>Email not verified</p>
-                  </div>
-                  <Alert
-                    variant="outlined"
-                    severity="error"
-                    className="mb-2 items-center text-xs"
-                  >
-                    Please verify your account please! Without verifying your
-                    account you will miss the provided features! Click below to
-                    send a email verification on your email!
-                  </Alert>
-                  <div
-                    onClick={verifyUser}
-                    className="inline-flex cursor-pointer  bg-violet-950 justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-white hover:text-black hover:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                  >
-                    <p>Veirfy</p>
-                  </div>
-                </div>
-              )}
-            </div>
-            <div>
-              <p className="text-gray-500 text-sm mb-2 ">
-                Joined in {formattedDate}
-              </p>
-              {/* <Link to={`/profile/${user_id}/editProfile`}> */}
-              {/* <div className="flex flex-col items-center mt-2 cursor-pointer">
-                <div className="rounded-lg p-4 bg-violet-950 text-white font-bold w-fit">
-                  <p>Edit Profile</p>
-                </div>
-              </div> */}
-              {user?.verified && (
-                <Menu as="div" className="relative text-left ">
-                  <div className="">
-                    <Menu.Button className="inline-flex  bg-violet-950 justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 text-sm font-medium text-white hover:text-black hover:bg-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
-                      Edit Profile
-                    </Menu.Button>
-                  </div>
-                  <Transition
-                    as={React.Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
-                  >
-                    <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right bg-white border border-gray-200 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      {/* Replace the below Menu.Item with your dropdown options */}
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            to={`/profile/${user_id}/editProfile`}
-                            className={`${
-                              active
-                                ? "bg-gray-100 text-gray-900"
-                                : "text-gray-700"
-                            } block px-4 py-2 text-sm`}
-                          >
-                            Change user details
-                          </Link>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            to={`/profile/${user_id}/editPassword`}
-                            className={`${
-                              active
-                                ? "bg-gray-100 text-gray-900"
-                                : "text-gray-700"
-                            } block px-4 py-2 text-sm`}
-                          >
-                            Change password
-                          </Link>
-                        )}
-                      </Menu.Item>
-                    </Menu.Items>
-                  </Transition>
-                </Menu>
-              )}
 
-              {/* </Link> */}
+            {/* Main Content */}
+            <div className="flex-1 min-w-0">
+              <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+                {loading ? (
+                  <UserProfileDetailsSkeleton />
+                ) : (
+                  <>
+                    {/* Reviews Section */}
+                    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between border-b border-gray-200 pb-3">
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                            Your Reviews
+                          </h3>
+                          <div className="flex items-center gap-2">
+                            <MdStar className="text-yellow-400 text-lg sm:text-xl" />
+                            <span className="text-sm sm:text-base font-semibold text-gray-700">
+                              {user?.reviews != null
+                                ? user?.reviews?.length
+                                : 0}{" "}
+                              Reviews
+                            </span>
+                          </div>
+                        </div>
+                        <ProfileReviews reviews={user?.reviews} />
+                      </div>
+                    </div>
+
+                    {/* Bookmarks Section */}
+                    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between border-b border-gray-200 pb-3">
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                            Your Bookmarks
+                          </h3>
+                          <span className="text-sm sm:text-base font-semibold text-gray-700">
+                            {user?.bookMarkLists != null
+                              ? user?.bookMarkLists?.length
+                              : 0}{" "}
+                            Bookmarks
+                          </span>
+                        </div>
+                        {user?.bookMarkLists &&
+                        user?.bookMarkLists.length > 0 ? (
+                          <ProfileBookMarks bookMarks={user?.bookMarkLists} />
+                        ) : (
+                          <div className="text-center py-8">
+                            <p className="text-gray-500 text-sm sm:text-base">
+                              No bookmarks found
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Blogs Section */}
+                    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-4 sm:p-6">
+                      <div className="space-y-4">
+                        <div className="flex items-center justify-between border-b border-gray-200 pb-3">
+                          <h3 className="text-lg sm:text-xl font-bold text-gray-900">
+                            Your Blogs
+                          </h3>
+                          <span className="text-sm sm:text-base font-semibold text-gray-700">
+                            {user?.blogs != null ? user?.blogs?.length : 0}{" "}
+                            Blogs
+                          </span>
+                        </div>
+                        {user?.blogs && user?.blogs.length > 0 ? (
+                          <ProfileBlogs blogs={user?.blogs} />
+                        ) : (
+                          <div className="text-center py-8">
+                            <p className="text-gray-500 text-sm sm:text-base">
+                              No blogs posted yet
+                            </p>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-
-        <div className="flex flex-col gap-10">
-          {loading ? (
-            <UserProfileDetailsSkeleton />
-          ) : (
-            <>
-              <div className="flex flex-col gap-4 ">
-                <div className="border-b-2 border-b-black w-fit font-semibold cursor-pointer">
-                  <p className="text-sm">Reviewed by you</p>
-                </div>
-                <div className="flex gap-1 items-center">
-                  <MdStar className="text-yellow-400 text-2xl" />
-                  <p className="text-sm font-bold">
-                    {user?.reviews != null ? user?.reviews?.length : 0} Reviews
-                  </p>
-                </div>
-                <ProfileReviews reviews={user?.reviews} />
-              </div>
-              <div className="flex flex-col gap-6 ">
-                <div className="border-b-2 border-b-black w-fit font-semibold cursor-pointer">
-                  <p className="text-sm">Book marked by you</p>
-                </div>
-                <div className="flex gap-1 items-center ">
-                  <p className="text-sm font-bold">
-                    {user?.reviews != null ? user?.bookMarkLists?.length : 0}{" "}
-                    Bookmarks
-                  </p>
-                </div>
-                {user?.bookMarkLists && user?.bookMarkLists.length > 0 ? (
-                  <ProfileBookMarks bookMarks={user?.bookMarkLists} />
-                ) : (
-                  <p className="text-black ">No bookmarks found</p>
-                )}
-              </div>
-              <div className="flex flex-col gap-4 text-sm">
-                <div className="border-b-2 border-b-black w-fit font-semibold cursor-pointer">
-                  <p className="text-sm">Blogs posted by you</p>
-                </div>
-                <div className="flex gap-1 items-center">
-                  <p className="text-sm font-bold">
-                    {user?.blogs != null ? user?.blogs?.length : 0} Blogs
-                  </p>
-                </div>
-                {user?.blogs && user?.blogs.length > 0 ? (
-                  <ProfileBlogs blogs={user?.blogs} />
-                ) : (
-                  <p className="text-black ">No blogs posted by you</p>
-                )}
-              </div>
-            </>
-          )}
         </div>
       </div>
     </div>

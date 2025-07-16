@@ -7,11 +7,11 @@ export default function MainaboutUs() {
   Aos.init();
 
   return (
-    <div className="flex flex-col pt-16">
+    <div className="flex flex-col pt-16 justify-center items-center">
       <MainHeaders Headers={"About us"} />
-      <div className="flex flex-col items-center mt-10">
+      <div className="flex flex-col items-center mt-10 max-w-5xl">
         <div
-          className="w-[60rem]"
+          className=""
           style={{ textAlign: "center" }}
           // data-aos="fade-right"
           // data-aos-once="true"
@@ -31,7 +31,7 @@ export default function MainaboutUs() {
           </p>
         </div>
         <div
-          className="w-[50rem] pt-5"
+          className=" pt-5"
           style={{ textAlign: "center" }}
           // data-aos="fade-left"
           // data-aos-once="true"

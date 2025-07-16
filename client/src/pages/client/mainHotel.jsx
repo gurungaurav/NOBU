@@ -62,65 +62,82 @@ export default function MainHotelPage() {
   };
 
   return (
-    <div className="flex flex-col pl-20 pr-20 w-full gap-10 pt-6 pb-10">
+    <div className="flex flex-col px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20 w-full gap-6 sm:gap-8 lg:gap-10 pt-4 sm:pt-6 pb-8 sm:pb-10">
       <MainHotelTop hotelDetails={hotelDetails} loading={loading} />
       <MainHotelRooms rooms={hotelDetails.roomDetails} loading={loading} />
-      <div className="mt-10">
+      <div className="mt-6 sm:mt-8 lg:mt-10">
         <MainHeaders Headers={"Popular Rooms"} />
-        <div className="grid grid-cols-2 gap-10 mx-40 mt-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 xl:gap-10 mx-0 sm:mx-4 lg:mx-8 xl:mx-12 2xl:mx-16 mt-6 sm:mt-8 lg:mt-10">
           {hotelDetails?.roomDetails?.slice(0, 4)?.map((room, index) => (
-            <div key={index}>
+            <div key={index} className="w-full">
               <MainHotelRoomsLists room={room} />
             </div>
           ))}
         </div>
       </div>
-      <div className="mt-10 mb-16">
+      <div className="mt-6 sm:mt-8 lg:mt-10 mb-8 sm:mb-12 lg:mb-16">
         <MainHeaders Headers={"Guest Reviews"} />
         <Swiper
-          slidesPerView={4}
-          spaceBetween={40}
+          slidesPerView={1}
+          spaceBetween={20}
           freeMode={true}
           autoplay={{
             delay: 4000,
             disableOnInteraction: false,
           }}
+          breakpoints={{
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 24,
+            },
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 32,
+            },
+            1280: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },
+          }}
           modules={[FreeMode, Autoplay]}
-          className="mySwiper mb-8 mt-12"
+          className="mySwiper mb-6 sm:mb-8 mt-6 sm:mt-8 lg:mt-12"
         >
           {hotelDetails?.hotel_reviews?.map((review, index) => (
             <SwiperSlide key={index}>
-              <div className="hover:shadow-lg ease-in duration-700 rounded-lg p-6 pb-16 border border-b-4 h-[15rem]">
-                <div className="flex flex-col gap-2 ">
-                  <div className="flex gap-4 items-center">
-                    <div className="w-12 rounded-full h-12">
+              <div className="hover:shadow-lg ease-in duration-700 rounded-lg p-4 sm:p-5 lg:p-6 pb-8 sm:pb-12 lg:pb-16 border border-b-4 h-auto min-h-[280px] sm:min-h-[320px] lg:min-h-[15rem] bg-white">
+                <div className="flex flex-col gap-2 sm:gap-3 h-full">
+                  <div className="flex gap-3 sm:gap-4 items-center">
+                    <div className="w-10 sm:w-12 rounded-full h-10 sm:h-12 flex-shrink-0">
                       <img
                         className="w-full h-full object-cover rounded-full"
                         src={review?.user?.user_pic}
-                      ></img>
+                        alt={`${review.user.user_name}'s profile`}
+                      />
                     </div>
-                    <div className="text-sm">
-                      <p>
+                    <div className="text-xs sm:text-sm min-w-0 flex-1">
+                      <p className="truncate">
                         <strong>{review.user.user_name}, </strong>
                         {format(new Date(review.createdAt), "MMMM dd")}
                       </p>
                     </div>
                   </div>
-                  <h1 className="text-violet-950 text-2xl font-semibold">
+                  <h1 className="text-violet-950 text-lg sm:text-xl lg:text-2xl font-semibold line-clamp-2">
                     {review.title}
                   </h1>
-                  <div className="">
-                    <p className="line-clamp-3 text-sm">
-                      {review.content} It was a pleasure working with the
-                      Saturn. They understood the brief correctly and delivered
-                      great designs exceeding the expectations.
+                  <div className="flex-1">
+                    <p className="line-clamp-3 sm:line-clamp-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                      {review.content}
                     </p>
                   </div>
-                  <div className="flex gap-4 items-center">
-                    <div className="flex text-xl text-yellow-400">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-4 items-start sm:items-center mt-auto">
+                    <div className="flex text-base sm:text-lg lg:text-xl text-yellow-400">
                       {generateStars(review.ratings)}
                     </div>
-                    <p className="text-sm font-semibold">
+                    <p className="text-xs sm:text-sm font-semibold text-gray-700">
                       {review.ratings}/5 stars
                     </p>
                   </div>
@@ -129,63 +146,14 @@ export default function MainHotelPage() {
             </SwiperSlide>
           ))}
         </Swiper>
-        {/* <Swiper
-          slidesPerView={4}
-          spaceBetween={30}
-          freeMode={true}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          modules={[FreeMode, Autoplay]}
-          className="mySwiper"
-        >
-          {hotelDetails?.hotel_reviews?.map((review, index) => (
-            <SwiperSlide key={index} className="ml-6 mr-16">
-              <div className="hover:shadow-lg ease-in duration-700 rounded-lg p-6 pb-16 border border-b-4 h-[15rem]">
-                <div className="flex flex-col gap-2 ">
-                  <div className="flex gap-4 items-center">
-                    <div className="w-12 rounded-full h-12">
-                      <img
-                        className="w-full h-full object-cover rounded-full"
-                        src={review?.user?.user_pic}
-                      ></img>
-                    </div>
-                    <div className="text-sm">
-                      <p>
-                        <strong>{review.user.user_name}, </strong>
-                        {format(new Date(review.createdAt), "MMMM dd")}
-                      </p>
-                    </div>
-                  </div>
-                  <h1 className="text-violet-950 text-2xl font-semibold">
-                    {review.title}
-                  </h1>
-                  <div className="">
-                    <p className="line-clamp-3 text-sm">
-                      {review.content} It was a pleasure working with the
-                      Saturn. They understood the brief correctly and delivered
-                      great designs exceeding the expectations.
-                    </p>
-                  </div>
-                  <div className="flex gap-4 items-center">
-                    <div className="flex text-xl text-yellow-400">
-                      {generateStars(review.ratings)}
-                    </div>
-                    <p>{review.ratings}/5 stars</p>
-                  </div>
-                </div>
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper> */}
       </div>
-      {/* <MainReviews reviews={hotelDetails.hotel_reviews} /> */}
-      <MainHotelMaps
-        Location={hotelDetails.location}
-        Phone={hotelDetails.phone_number}
-        Email={hotelDetails.email}
-      />
+      <div className="mt-6 sm:mt-8 lg:mt-10">
+        <MainHotelMaps
+          Location={hotelDetails.location}
+          Phone={hotelDetails.phone_number}
+          Email={hotelDetails.email}
+        />
+      </div>
     </div>
   );
 }

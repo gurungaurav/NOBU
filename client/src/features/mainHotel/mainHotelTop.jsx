@@ -15,7 +15,7 @@ export default function MainHotelTop(props) {
   console.log(hotelDetails);
   return (
     <>
-      <div className="">
+      <div className="px-4 sm:px-6 lg:px-8">
         {loading ? (
           <MainSkeletonTheme>
             <Skeleton width={200} height={30}></Skeleton>
@@ -25,65 +25,62 @@ export default function MainHotelTop(props) {
             </div>
           </MainSkeletonTheme>
         ) : (
-          <div className="flex flex-col">
-            <p className="text-4xl font-bold text-violet-950">
+          <div className="flex flex-col gap-2 sm:gap-3">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-violet-950 leading-tight">
               {hotelDetails?.hotel_name}
-            </p>
-            <div className="flex gap-4 items-center">
-              <BiTargetLock className="text-4xl font-bold" />
-              <div className="flex flex-col font-semibold">
-                <p>{hotelDetails?.location}</p>
+            </h1>
+            <div className="flex gap-2 sm:gap-3 lg:gap-4 items-center">
+              <BiTargetLock className="text-2xl sm:text-3xl lg:text-4xl text-violet-950 flex-shrink-0" />
+              <div className="flex flex-col font-semibold min-w-0">
+                <p className="text-sm sm:text-base lg:text-lg text-gray-700 truncate">
+                  {hotelDetails?.location}
+                </p>
               </div>
             </div>
           </div>
         )}
-        {/* <div className="flex items-center">
-          <BiBookmark className="text-3xl" />
-          <div className="p-3 border-black border-2 ">
-            <p className="text-xl">Book</p> 
-          </div>
-        </div> */}
       </div>
       {loading ? (
         <SliderMainHotelSkeleton />
       ) : (
-        <div className="w-full h-[30rem] ">
+        <div className="w-full h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[30rem] mt-4 sm:mt-6">
           <SliderMain pictures={hotelDetails?.other_pictures} />
-          {/* <img className="w-full h-full object-cover" src={bill}></img> */}
         </div>
       )}
-      <div className="flex flex-col gap-4 pl-40 pr-40">
-        <div className="pt-2 ">
+      <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-20">
+        <div className="pt-4 sm:pt-6">
           {loading ? (
             <MainSkeletonTheme>
-              <Skeleton width={1200} height={20}></Skeleton>
-              <Skeleton width={1100} height={20}></Skeleton>
-              <Skeleton width={1180} height={20}></Skeleton>
-              <Skeleton width={1190} height={20}></Skeleton>
-              <Skeleton width={1000} height={20}></Skeleton>
+              <Skeleton width="100%" height={20}></Skeleton>
+              <Skeleton width="95%" height={20}></Skeleton>
+              <Skeleton width="98%" height={20}></Skeleton>
+              <Skeleton width="92%" height={20}></Skeleton>
+              <Skeleton width="85%" height={20}></Skeleton>
             </MainSkeletonTheme>
           ) : (
-            <p>{hotelDetails?.description}</p>
+            <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-gray-700">
+              {hotelDetails?.description}
+            </p>
           )}
         </div>
 
-        <div className=" border-t border-t-violet-950  pt-4 flex flex-col gap-4">
+        <div className="border-t border-t-violet-950 pt-4 sm:pt-6 lg:pt-8 flex flex-col gap-4 sm:gap-6 lg:gap-8">
           {loading ? (
             <MainSkeletonTheme>
               <Skeleton width={150} height={30}></Skeleton>
               <Skeleton className="mt-6" width={100} height={20}></Skeleton>
-              <div className="grid grid-cols-2 w-[25rem]">
-                {[1, 2, 3, 4, 5, 6].map(() => (
-                  <div className="flex gap-2 items-center mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 max-w-2xl">
+                {[1, 2, 3, 4, 5, 6].map((item) => (
+                  <div key={item} className="flex gap-2 items-center mt-4">
                     <Skeleton circle={true} width={20} height={20}></Skeleton>
                     <Skeleton width={50} height={15}></Skeleton>
                   </div>
                 ))}
               </div>
               <Skeleton className="mt-6" width={100} height={20}></Skeleton>
-              <div className="grid grid-cols-2 w-[25rem]">
-                {[1, 2, 3, 4, 5, 6].map(() => (
-                  <div className="flex gap-2 items-center mt-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 max-w-2xl">
+                {[1, 2, 3, 4, 5, 6].map((item) => (
+                  <div key={item} className="flex gap-2 items-center mt-4">
                     <Skeleton circle={true} width={20} height={20}></Skeleton>
                     <Skeleton width={50} height={15}></Skeleton>
                   </div>
@@ -92,32 +89,51 @@ export default function MainHotelTop(props) {
             </MainSkeletonTheme>
           ) : (
             <>
-              <h1 className="text-3xl font-bold text-violet-950">At Hotel</h1>
-              <div>
-                <p className="font-semibold text-xl">Amenities:</p>
-                <div className="grid grid-cols-2 gap-2 w-[30rem] mt-2">
-                  {hotelDetails?.hotel_amenities &&
-                    hotelDetails.hotel_amenities.map((amen, index) => (
-                      <ul key={index}>
-                        <li className="flex gap-1 items-center">
-                          {amenityIcons[amen]} {amen}
-                        </li>
-                      </ul>
-                    ))}
+              <h2 className="text-2xl sm:text-3xl font-bold text-violet-950">
+                At Hotel
+              </h2>
+              <div className="space-y-4 sm:space-y-6">
+                <div>
+                  <h3 className="font-semibold text-lg sm:text-xl text-violet-950 mb-3 sm:mb-4">
+                    Amenities:
+                  </h3>
+                  <div className="flex flex-wrap gap-2 sm:gap-3 lg:gap-4 ">
+                    {hotelDetails?.hotel_amenities &&
+                      hotelDetails.hotel_amenities.map((amen, index) => (
+                        <div
+                          key={index}
+                          className="flex gap-2 sm:gap-3 items-center bg-gray-50 p-2 sm:p-3 rounded-lg hover:bg-gray-100 transition-colors"
+                        >
+                          <span className="text-violet-600 text-lg sm:text-xl flex-shrink-0">
+                            {amenityIcons[amen]}
+                          </span>
+                          <span className="text-sm sm:text-base text-gray-700 font-medium">
+                            {amen}
+                          </span>
+                        </div>
+                      ))}
+                  </div>
                 </div>
-              </div>
-              <div>
-                <p className="font-semibold text-xl">Additional Services:</p>
-                <div className="grid grid-cols-2 w-[25rem] mt-2">
-                  {hotelDetails?.additionalServices &&
-                    hotelDetails.additionalServices.map((service, index) => (
-                      <ul key={index}>
-                        <li className="flex gap-1 items-center">
-                          {amenityIcons[service.service_name]}{" "}
-                          {service.service_name}
-                        </li>
-                      </ul>
-                    ))}
+                <div>
+                  <h3 className="font-semibold text-lg sm:text-xl text-violet-950 mb-3 sm:mb-4">
+                    Additional Services:
+                  </h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2 sm:gap-3 lg:gap-4 max-w-none sm:max-w-2xl lg:max-w-4xl">
+                    {hotelDetails?.additionalServices &&
+                      hotelDetails.additionalServices.map((service, index) => (
+                        <div
+                          key={index}
+                          className="flex gap-2 sm:gap-3 items-center bg-gray-50 p-2 sm:p-3 rounded-lg hover:bg-gray-100 transition-colors"
+                        >
+                          <span className="text-violet-600 text-lg sm:text-xl flex-shrink-0">
+                            {amenityIcons[service.service_name]}
+                          </span>
+                          <span className="text-sm sm:text-base text-gray-700 font-medium">
+                            {service.service_name}
+                          </span>
+                        </div>
+                      ))}
+                  </div>
                 </div>
               </div>
             </>

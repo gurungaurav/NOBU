@@ -62,96 +62,114 @@ export default function Home() {
         >
           <Navbar />
         </div>
-        <div className="relative h-screen ">
+        <div className="relative h-screen min-h-[500px] sm:min-h-[600px] lg:min-h-[700px]">
           <div
-            className="absolute inset-0 bg-gradient-to-b from-black to-transparent"
-            style={{ zIndex: 1, opacity: 0.7 }}
+            className="absolute inset-0 bg-gradient-to-b from-black/70 to-transparent"
+            style={{ zIndex: 1 }}
           ></div>
           <div className="absolute inset-0 overflow-hidden">
             <img
               className="h-full w-full object-cover"
               src={wall}
-              alt="Background"
+              alt="Beautiful hotel landscape in Nepal"
               style={{
                 transform: `translateY(${scrollPosition * 0.1}px)`,
                 transition: "transform 0.3s ease",
               }}
             />
           </div>
-          <div className="absolute bottom-16 left-0 w-full z-20">
-            <div className="pb-10">
+          <div className="absolute bottom-4 sm:bottom-8 lg:bottom-12 xl:bottom-16 left-0 w-full z-20 px-2 sm:px-4">
+            <div className="pb-4 sm:pb-6 lg:pb-8 xl:pb-10">
               <HotelIntro />
             </div>
           </div>
         </div>
 
-        <div className="pl-20 pr-20 pt-10">
+        <div className="px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 pt-6 sm:pt-8 lg:pt-10 xl:pt-12">
           <MainBody />
         </div>
         <div
-          className=" w-full h-[25rem]  bg-center bg-no-repeat bg-cover z-10 "
+          className="w-full  bg-center bg-no-repeat bg-cover relative py-12 sm:py-16 mt-12 md:mt-16"
           style={{
             backgroundImage: `url(${wall})`,
-            backgroundAttachment: "fixed",
+            backgroundAttachment:
+              typeof window !== "undefined" && window.innerWidth > 768
+                ? "fixed"
+                : "scroll",
           }}
         >
-          <div className="text-center flex justify-center items-center flex-col h-full text-white">
-            <div className="sm:text-center">
-              <h2 className="text-3xl font-semibold leading-7 text-white sm:text-4xl xl:text-5xl">
+          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="relative z-10 text-center flex justify-center items-center flex-col h-full text-white px-3 sm:px-4 lg:px-6">
+            <div className="text-center mb-6 sm:mb-8 lg:mb-10">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold leading-tight text-white">
                 Overview
               </h2>
-              <hr className="h-1.5 w-32 border-none bg-violet-950 sm:mx-auto mt-3 rounded-lg" />
+              <hr className="h-1.5 w-16 sm:w-24 lg:w-32 border-none bg-violet-950 mx-auto mt-3 sm:mt-4 rounded-lg" />
             </div>
-            <div className="mx-auto mt-10 grid max-w-screen-lg grid-cols-1 gap-x-8 gap-y-12 text-center sm:text-left md:grid-cols-3">
-              <div className="backdrop-blur-lg relative mb-3 rounded-3xl border bg-white/70 px-12 py-10 text-left shadow lg:px-12">
-                <p className="relative text-5xl font-black text-violet-950">
+            <div className="mx-auto grid max-w-screen-lg w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+              <div className="backdrop-blur-lg relative rounded-2xl sm:rounded-3xl border bg-white/80 px-4 sm:px-6 lg:px-8 xl:px-12 py-4 sm:py-6 lg:py-8 xl:py-10 text-left shadow-lg hover:shadow-xl transition-shadow">
+                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-violet-950">
                   10
                 </p>
-                <p className="relative mt-5 text-gray-600">Listed Hotels</p>
+                <p className="mt-2 sm:mt-3 lg:mt-5 text-xs sm:text-sm lg:text-base text-gray-600 font-medium">
+                  Listed Hotels
+                </p>
               </div>
 
-              <div className="backdrop-blur-lg relative mb-3 rounded-3xl border bg-white/70 px-12 py-10 text-left shadow lg:px-12">
-                <p className="relative text-5xl font-black text-violet-950 ">
+              <div className="backdrop-blur-lg relative rounded-2xl sm:rounded-3xl border bg-white/80 px-4 sm:px-6 lg:px-8 xl:px-12 py-4 sm:py-6 lg:py-8 xl:py-10 text-left shadow-lg hover:shadow-xl transition-shadow">
+                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-violet-950">
                   51%
                 </p>
-                <p className="relative mt-5 text-gray-600">
+                <p className="mt-2 sm:mt-3 lg:mt-5 text-xs sm:text-sm lg:text-base text-gray-600 font-medium">
                   Customer Satisfaction
                 </p>
               </div>
 
-              <div className="backdrop-blur-lg relative mb-3 rounded-3xl border bg-white/70 px-12 py-10 text-left shadow lg:px-12">
-                <p className="relative m-0 text-5xl font-black text-violet-950">
+              <div className="backdrop-blur-lg relative rounded-2xl sm:rounded-3xl border bg-white/80 px-4 sm:px-6 lg:px-8 xl:px-12 py-4 sm:py-6 lg:py-8 xl:py-10 text-left shadow-lg hover:shadow-xl transition-shadow sm:col-span-2 lg:col-span-1">
+                <p className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-violet-950">
                   8529+
                 </p>
-                <p className="relative mt-5 text-gray-600">Happy Customers</p>
+                <p className="mt-2 sm:mt-3 lg:mt-5 text-xs sm:text-sm lg:text-base text-gray-600 font-medium">
+                  Happy Customers
+                </p>
               </div>
             </div>
-            <p>Join our growing community today!</p>
+            <p className="mt-4 sm:mt-6 lg:mt-8 text-sm sm:text-base lg:text-lg font-medium">
+              Join our growing community today!
+            </p>
           </div>
         </div>
-        <div className="grid grid-cols-2 items-center px-[15rem] my-28 gap-20">
-          <div>
-            <p className="first-letter:capitalize text-5xl text-violet-950 font-semibold">
-              Join us
+        <div className="grid grid-cols-1 max-w-7xl mx-auto lg:grid-cols-2 items-center px-3 sm:px-4 md:px-6 lg:px-8 xl:px-12 2xl:px-16 my-12 sm:my-16 lg:my-20 xl:my-24 2xl:my-28 gap-6 sm:gap-8 lg:gap-12 xl:gap-16 2xl:gap-20">
+          <div className="order-2 lg:order-1 space-y-4 sm:space-y-6">
+            <div>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-violet-950 font-bold leading-tight">
+                Join Us
+              </h3>
+              <div className="bg-violet-950 w-12 sm:w-16 lg:w-20 h-1 sm:h-1.5 rounded-full mt-2 sm:mt-3"></div>
+            </div>
+            <p className="text-sm sm:text-base lg:text-lg leading-relaxed text-gray-700 max-w-none lg:max-w-2xl">
+              Through our family of websites, travelers connect with the
+              world&apos;s best travel suppliers. This is our marketplace–a
+              thriving community, passionate about the mind-expanding,
+              soul-filling power of travel. Connect with your best guests today!
             </p>
-            <div className="bg-black w-[4rem] p-[2px] rounded-lg mt-1"></div>
-            <p className="mt-2 text-lg ">
-              Through our family of websites, travelers connect with the world’s
-              best travel suppliers. This is our marketplace–a thriving
-              community, passionate about the mind-expanding, soul-filling power
-              of travel. Connect with your best guests today!
-            </p>
-            <button className="group flex w-28 cursor-pointer select-none items-center justify-center rounded-md  border-2  border-white bg-violet-950 text-white  text-sm  transition hover:border-2  hover:bg-white hover:text-black hover:border-violet-950  mt-4 md:w-40 md:text-base lg:w-fit lg:p-3 lg:text-base">
+            <div className="pt-2 sm:pt-4">
               <Link
                 to={"/listYourProperty"}
-                className="group ml-3 flex w-full items-center justify-center rounded py-1 text-center text-sm font-bold group-hover:text-secondaryColor md:text-base"
+                className="group inline-flex items-center justify-center gap-2 sm:gap-3 rounded-lg border-2 border-violet-950 bg-violet-950 text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 hover:bg-white hover:text-violet-950 hover:border-violet-950 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2 transform hover:scale-105 active:scale-95"
               >
-                List your property now
+                <span>List your property now</span>
+                <FaArrowRightLong className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-1" />
               </Link>
-              <FaArrowRightLong className=" mx-2 h-6 w-0 transition-all group-hover:w-6 group-hover:text-secondaryColor" />
-            </button>
+            </div>
           </div>
-          <img className="h-[25rem] object-cover w-full" src={bill}></img>
+          <div className="order-1 lg:order-2">
+            <img
+              className="h-64 sm:h-80 md:h-96 lg:h-[28rem] xl:h-[32rem] object-cover w-full rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300"
+              src={bill}
+              alt="Travelers enjoying their hotel experience"
+            />
+          </div>
         </div>
         {/* <div className="mx-20  border-t border-t-violet-950 flex items-center justify-center">
           <form
@@ -184,12 +202,13 @@ export default function Home() {
         </div> */}
       </div>
       {showButton && (
-        <div
-          className=" fixed text-white bottom-20 right-10 p-3 text-xl bg-violet-950 rounded-full border-2 z-30 hover:bg-opacity-90 cursor-pointer"
+        <button
+          className="fixed text-white bottom-4 sm:bottom-6 lg:bottom-8 right-3 sm:right-4 lg:right-6 xl:right-8 p-2.5 sm:p-3 lg:p-4 text-lg sm:text-xl lg:text-2xl bg-violet-950 rounded-full shadow-lg hover:shadow-xl z-30 hover:bg-violet-800 cursor-pointer transition-all duration-300 hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-violet-500 focus:ring-offset-2"
           onClick={scrollToTop}
+          aria-label="Scroll to top"
         >
           <IoIosArrowUp />
-        </div>
+        </button>
       )}
       <Footer />
     </>

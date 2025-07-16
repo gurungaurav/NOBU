@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MainHeaders from "../../components/mainHeaders/mainHeaders";
-import HotelsSearch from "../../features/mainFilters/hotels/hotelsSearch";
+import HotelsSearchResponsive from "../../features/mainFilters/hotels/hotelsSearchResponsive";
 import { getAllHotels } from "../../services/hotels/hotels.service";
 import HotelsFilter from "../../features/mainFilters/hotels/hotelsFilter";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ export default function FilterHotels() {
   const [hotels, setHotels] = useState([]);
   const [filteredHotels, setFilteredHotels] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
 
   const location = useLocation();
   console.log(location.search);
@@ -56,7 +57,7 @@ export default function FilterHotels() {
     setLoading(true);
 
     switch (type) {
-      case "amenities":
+      case "amenities": {
         const updatedAmenities = amenities.includes(value)
           ? amenities.filter((a) => a !== value)
           : [...amenities, value];
@@ -67,8 +68,8 @@ export default function FilterHotels() {
           queryParams.delete("amenities");
         }
         break;
-
-      case "ratings":
+      }
+      case "ratings": {
         if (ratings === value) {
           // Uncheck the checkbox
           setRatings(0);
@@ -79,11 +80,13 @@ export default function FilterHotels() {
           queryParams.set("ratings", value);
         }
         break;
-      case "location":
+      }
+      case "location": {
         setSelectedLocation(value);
         queryParams.set("location", value);
         console.log("ahah");
         break;
+      }
       default:
         break;
     }
@@ -95,24 +98,43 @@ export default function FilterHotels() {
   console.log(ratings);
 
   return (
-    <div className="p-6">
-      <div className="px-8 ">
-        <MainHeaders Headers={"Filter Hotels"} />
-        <div className="flex gap-10 mt-6">
-          <HotelsSearch
-            onFilterChange={handleFilterChange}
-            handleFilters={handleFilters}
-            ratings={ratings}
-            amenities={amenities}
-            // roomTypes={roomTypes}
-            // priceRange={priceRange}
-            selectedLocation={selectedLocation}
-          />
-          <div className="w-full">
-            <div className="flex flex-col gap-4">
-              {
-                //!If no filter is done then the hotels which is fetched are shown
-              }
+    <div className="min-h-screen bg-gray-50">
+      <div className="px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+        <div className="mb-6 sm:mb-8">
+          <MainHeaders Headers={"Filter Hotels"} />
+        </div>
+        <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 xl:gap-10">
+          {/* Mobile Filter Toggle Button */}
+          <div className="lg:hidden">
+            <button
+              onClick={() => setShowMobileFilters(!showMobileFilters)}
+              className="w-full flex items-center justify-center gap-2 bg-violet-950 text-white py-3 px-4 rounded-lg font-semibold hover:bg-violet-800 transition-colors"
+            >
+              <span>Filters</span>
+              <span className="text-sm">({queryParams.size})</span>
+            </button>
+          </div>
+
+          {/* Filter Sidebar */}
+          <div
+            className={`
+            ${showMobileFilters ? "block" : "hidden"} lg:block
+            lg:w-80 xl:w-96 flex-shrink-0
+          `}
+          >
+            <HotelsSearchResponsive
+              onFilterChange={handleFilterChange}
+              handleFilters={handleFilters}
+              ratings={ratings}
+              amenities={amenities}
+              selectedLocation={selectedLocation}
+              onMobileClose={() => setShowMobileFilters(false)}
+            />
+          </div>
+
+          {/* Results Section */}
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-col gap-4 sm:gap-6">
               <HotelsFilter
                 hotels={filteredHotels != null ? filteredHotels : hotels}
                 loading={loading}

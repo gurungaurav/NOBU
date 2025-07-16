@@ -109,22 +109,22 @@ export default function LoginForm() {
   };
 
   return (
-    <div className=" w-full flex flex-col items-center justify-center h-[100vh] bg-violet-100">
+    <div className="w-full flex flex-col items-center justify-center min-h-screen bg-violet-100 p-4">
       <form
-        className="flex absolute bg-center bg-white items-center rounded-lg    h-fit shadow-xl "
+        className="flex flex-col lg:flex-row  bg-white items-center rounded-xl h-fit shadow-xl w-full max-w-6xl overflow-hidden"
         onSubmit={handleSubmit}
       >
-        <div className="flex flex-col px-20  w-[35rem]">
-          <div className="text-3xl font-bold tracking-wider flex flex-col  w-full mb-10">
+        <div className="flex flex-col px-6 sm:px-12  py-8 lg:py-0 w-full ">
+          <div className="text-2xl sm:text-3xl font-bold tracking-wider flex flex-col w-full mb-6 lg:mb-10">
             <p>Good day!</p>
             <p className="text-sm font-normal">Ready to explore? </p>
           </div>
 
-          <div className="flex flex-col  h-[90px] w-full">
-            <div className=" rounded-md border-2 p-4 flex items-center gap-2 ">
-              <AiOutlineMail className="text-neutral-500 text-xl" />
+          <div className="flex flex-col h-[90px] w-full">
+            <div className="rounded-md border-2 p-3 sm:p-4 flex items-center gap-2">
+              <AiOutlineMail className="text-neutral-500 text-xl flex-shrink-0" />
               <input
-                className="outline-none text-black w-full"
+                className="outline-none text-black w-full min-w-0"
                 placeholder="Email"
                 type="email"
                 name="email"
@@ -137,16 +137,16 @@ export default function LoginForm() {
               <p className="text-red-600 text-sm">{errors.email}</p>
             ) : null}
           </div>
-          <div className="flex flex-col  h-[90px] w-full">
-            <div className=" rounded-md border-2 p-4 flex items-center gap-2">
+          <div className="flex flex-col h-[90px] w-full">
+            <div className="rounded-md border-2 p-3 sm:p-4 flex items-center gap-2">
               {showPassword ? (
-                <CiUnlock className="text-neutral-500 text-xl" />
+                <CiUnlock className="text-neutral-500 text-xl flex-shrink-0" />
               ) : (
-                <CiLock className="text-neutral-500 text-xl" />
+                <CiLock className="text-neutral-500 text-xl flex-shrink-0" />
               )}
               <input
                 type={`${showPassword ? "text" : "password"}`}
-                className="outline-none   w-full"
+                className="outline-none w-full min-w-0"
                 placeholder="password"
                 name="password"
                 value={values.password}
@@ -158,13 +158,13 @@ export default function LoginForm() {
               <p className="text-red-600 text-sm">{errors.password}</p>
             )}
           </div>
-          <div className=" flex justify-between items-center text-sm font-semibold">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center text-sm font-semibold gap-3 sm:gap-0">
             <div className="flex gap-2 items-center">
               <input
                 id="showPassword"
                 type="checkbox"
                 onClick={updateShowPassword}
-                className="form-checkbox h-4 w-4  rounded-md  border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
+                className="form-checkbox h-4 w-4 rounded-md border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
               ></input>
               <label htmlFor="showPassword" className="cursor-pointer">
                 Show Password
@@ -190,7 +190,7 @@ export default function LoginForm() {
             </button>
           ) : ( */}
           <button
-            className={`transition ease-in-out delay-150 flex gap-2 items-center justify-center bg-violet-950 text-white font-semibold  hover:bg-opacity-90 duration-300 p-2 rounded-md mt-6 ${
+            className={`transition ease-in-out delay-150 flex gap-2 items-center justify-center bg-violet-950 text-white font-semibold hover:bg-opacity-90 duration-300 p-3 rounded-md mt-6 w-full ${
               loading && "cursor-not-allowed bg-opacity-90"
             }`}
             type="submit"
@@ -211,25 +211,26 @@ export default function LoginForm() {
             </p>
           </div>
         </div>
-        <div className="rounded-l-[3rem] w-[35rem] h-[40rem] relative">
+        <div className="hidden lg:block  w-full  h-[30rem] lg:h-[40rem] relative ">
           <img
-            className="w-full rounded-l-[3rem]  h-full object-cover rounded-r-lg "
+            className="w-full  h-full object-cover rounded-r-lg"
             src={fomBg}
+            alt="Login background"
           ></img>
-          <div className="absolute top-[12rem] text-white w-full flex flex-col items-center justify-center ">
-            <div className="backdrop-blur-sm bg-white bg-opacity-20 rounded-md py-10 px-8 w-[20rem]">
-              <h1 className="text-3xl font-semibold tracking-wider">
+          <div className="absolute top-[8rem] lg:top-[12rem] text-white w-full flex flex-col items-center justify-center">
+            <div className="backdrop-blur-sm bg-white bg-opacity-20 rounded-md py-6 lg:py-10 px-6 lg:px-8 w-[18rem] lg:w-[20rem]">
+              <h1 className="text-2xl lg:text-3xl font-semibold tracking-wider">
                 Welcome!
               </h1>
-              <p className="text-lg font-semibold mt-1 tracking-wider">
+              <p className="text-base lg:text-lg font-semibold mt-1 tracking-wider">
                 Please log in to continue
               </p>
-              <p className="mt-10 text-xs tracking-wider">
+              <p className="mt-6 lg:mt-10 text-xs tracking-wider">
                 Explore exclusive hotel deals and book your dream stay with
                 ease.
               </p>
             </div>
-            <div className="w-[15rem] mt-14 text-sm ">
+            <div className="w-[12rem] lg:w-[15rem] mt-8 lg:mt-14 text-xs lg:text-sm">
               <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -241,9 +242,9 @@ export default function LoginForm() {
                   clickable: true,
                 }}
                 modules={[Autoplay, Pagination]}
-                className="mySwiper text-center  "
+                className="mySwiper text-center"
               >
-                <SwiperSlide className="mb-10">
+                <SwiperSlide className="mb-6 lg:mb-10">
                   <div className="text-center">
                     <p className="">
                       Explore our wide range of destinations and find your
@@ -251,7 +252,7 @@ export default function LoginForm() {
                     </p>
                   </div>
                 </SwiperSlide>
-                <SwiperSlide className="mb-10 ">
+                <SwiperSlide className="mb-6 lg:mb-10">
                   <div className="text-center">
                     <p className="">
                       Unlock exclusive deals and discounts on luxury hotels
@@ -259,7 +260,7 @@ export default function LoginForm() {
                     </p>
                   </div>
                 </SwiperSlide>
-                <SwiperSlide className="mb-10 ">
+                <SwiperSlide className="mb-6 lg:mb-10">
                   <div className="text-center">
                     <p className="">
                       Tailor your travel experience with our personalized
@@ -267,7 +268,7 @@ export default function LoginForm() {
                     </p>
                   </div>
                 </SwiperSlide>
-                <SwiperSlide className="mb-10 ">
+                <SwiperSlide className="mb-6 lg:mb-10">
                   <div className="text-center">
                     <p className="">
                       Enjoy a hassle-free booking process and secure your dream

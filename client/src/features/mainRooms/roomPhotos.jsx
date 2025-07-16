@@ -40,35 +40,38 @@ export default function RoomPhotos(props) {
       {loading ? (
         <MainImagesGallerySkeleton />
       ) : (
-        <div className="flex gap-2 rounded-xl max-h-[30rem] relative ">
-          <div className="max-h-full rounded-l-xl w-full">
+        <div className="relative flex flex-col md:flex-row gap-2 rounded-xl max-h-[30rem] w-full">
+          {/* Main Image */}
+          <div className="w-full md:w-2/3 max-h-[20rem] md:max-h-full rounded-t-xl md:rounded-l-xl md:rounded-tr-none overflow-hidden">
             <img
-              className="h-full w-full object-cover rounded-l-xl"
+              className="h-60 md:h-full w-full object-cover rounded-t-xl md:rounded-l-xl md:rounded-tr-none"
               src={mainImage}
               alt="Room"
-            ></img>
+            />
           </div>
-          <div className="grid grid-cols-2 gap-2 max-h-[30rem] overflow-hidden rounded-r-xl">
+          {/* Thumbnails */}
+          <div className="grid grid-cols-2 gap-2 w-full md:w-1/3 max-h-[20rem] md:max-h-[30rem] overflow-hidden rounded-b-xl md:rounded-r-xl md:rounded-bl-none">
             {roomPictures &&
-              roomPictures?.map((picture, index) => (
+              roomPictures?.map((picture) => (
                 <div
                   key={picture.picture_id}
-                  className="max-h-[19rem] cursor-pointer hover:opacity-90 "
+                  className="max-h-[9rem] md:max-h-[19rem] cursor-pointer hover:opacity-90"
                   onClick={() => handleImageClick(picture.room_picture)}
                 >
                   <img
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover rounded-b-xl md:rounded-none"
                     src={picture.room_picture}
                     alt="Room"
-                  ></img>
+                  />
                 </div>
               ))}
           </div>
+          {/* View All Button */}
           <div
-            className="absolute bottom-6 right-6 bg-violet-950 p-2 rounded-lg cursor-pointer"
+            className="absolute bottom-3 right-3 md:bottom-6 md:right-6 bg-violet-950 p-2 rounded-lg cursor-pointer z-10"
             onClick={openModal}
           >
-            <p className="text-white font-semibold text-sm">
+            <p className="text-white font-semibold text-xs md:text-sm">
               View All Pictures
             </p>
           </div>

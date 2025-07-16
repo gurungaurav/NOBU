@@ -4,22 +4,18 @@ import MainaboutUs from "../main-aboutUS/main-aboutUs";
 import MainVendors from "../main-Vendors/mainVendors";
 import bill from "../../../../assets/bill.png";
 import MainHeaders from "../../../../components/mainHeaders/mainHeaders";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import MainBlogsSlider from "../main-blogs/mainBlogsSlider";
 
 export default function MainBody() {
-  Aos.init();
-
   return (
     <div className=" mb-6">
       <div className="">
-        <div className=" inline-block">
+        {/* <div className=" inline-block">
           <h1 className="font-bold text-4xl text-violet-950">
             Explore Pokharas Finest Hotels and Restros
           </h1>
         </div>
-        <div className="pt-5 text-sm">
+        <div className="pt-5 text-base pb-10">
           <p>
             For a comfortable stay amidst Pokhara's natural beauty, our online
             hotel booking platform offers a diverse range of accommodations,
@@ -30,7 +26,7 @@ export default function MainBody() {
             of Pokhara and let our hotels be your home away from home in this
             Himalayan paradise.
           </p>
-        </div>
+        </div> */}
         <MainHotels />
         <MainaboutUs />
         {/* <MainVendors /> */}

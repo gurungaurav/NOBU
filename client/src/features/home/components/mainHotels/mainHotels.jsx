@@ -1,22 +1,19 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import MainHeaders from "../../../../components/mainHeaders/mainHeaders";
 import { getAllHotels } from "../../../../services/hotels/hotels.service";
 import { Link } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { AnimatePresence, motion } from "framer-motion";
-import { cn } from "../../../../utils/cn";
-import wall from "../../../../assets/light.jpg";
 import { FaStar } from "react-icons/fa";
 import { amenityIcons } from "../../../../icons/amenitiesIcons";
 import HotelSkeleton from "../../../../components/skeletons/hotelListsSkeleton";
 
-//!So i will just add the total reviews of all the hotels and the send the same reviews to the hotel details
 export default function MainHotels() {
   const [hotels, setHotels] = useState([]);
   const [loading, setLoading] = useState(true);
 
   Aos.init();
+
   const getHotels = async () => {
     try {
       const res = await getAllHotels();
@@ -32,205 +29,100 @@ export default function MainHotels() {
     getHotels();
   }, []);
 
-  const ref = useRef(null);
-
-  const [direction, setDirection] = useState("left");
-
-  const handleMouseEnter = (event) => {
-    if (!ref.current) return;
-
-    const direction = getDirection(event, ref.current);
-    console.log("direction", direction);
-    switch (direction) {
-      case 0:
-        setDirection("top");
-        break;
-      case 1:
-        setDirection("right");
-        break;
-      case 2:
-        setDirection("bottom");
-        break;
-      case 3:
-        setDirection("left");
-        break;
-      default:
-        setDirection("left");
-        break;
-    }
-  };
-
-  const getDirection = (ev, obj) => {
-    const { width: w, height: h, left, top } = obj.getBoundingClientRect();
-    const x = ev.clientX - left - (w / 2) * (w > h ? h / w : 1);
-    const y = ev.clientY - top - (h / 2) * (h > w ? w / h : 1);
-    const d = Math.round(Math.atan2(y, x) / 1.57079633 + 5) % 4;
-    return d;
-  };
-
-  const variants = {
-    initial: {
-      x: 0,
-    },
-
-    exit: {
-      x: 0,
-      y: 0,
-    },
-    top: {
-      y: 20,
-    },
-    bottom: {
-      y: -20,
-    },
-    left: {
-      x: 20,
-    },
-    right: {
-      x: -20,
-    },
-  };
-
-  const textVariants = {
-    initial: {
-      y: 0,
-      x: 0,
-      opacity: 0,
-    },
-    exit: {
-      y: 0,
-      x: 0,
-      opacity: 0,
-    },
-    top: {
-      y: -20,
-      opacity: 1,
-    },
-    bottom: {
-      y: 2,
-      opacity: 1,
-    },
-    left: {
-      x: -2,
-      opacity: 1,
-    },
-    right: {
-      x: 20,
-      opacity: 1,
-    },
-  };
-
   return (
-    <div>
-      <div className="flex justify-center mt-6">
-        <MainHeaders Headers={"Our Hotels & Restros"} />
+    <div className="">
+      <div className="flex justify-center mt-6 sm:mt-8 lg:mt-10">
+        <MainHeaders Headers={"Our Hotels & Restaurants"} />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 pt-10 gap-10 ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 pt-8 sm:pt-10 lg:pt-12 gap-6 sm:gap-8 lg:gap-10 max-w-7xl mx-auto">
         {loading ? (
-          [1, 2, 3, 4].map(() => <HotelSkeleton />)
+          [1, 2, 3, 4].map((item) => <HotelSkeleton key={item} />)
         ) : hotels ? (
           hotels.slice(0, 4).map((hotel) => (
             <Link to={`/mainHotel/${hotel.hotel_id}`} key={hotel.hotel_id}>
-              <div className="border rounded-md flex flex-col shadow-md cursor-pointer ">
-                <motion.div
-                  onMouseEnter={handleMouseEnter}
-                  ref={ref}
-                  className={cn(
-                    "w-full bg-transparent rounded-t-md overflow-hidden group/card relative"
-                  )}
-                >
-                  <AnimatePresence mode="wait">
-                    <motion.div
-                      className="relative h-full w-full"
-                      initial="initial"
-                      whileHover={direction}
-                      exit="exit"
-                    >
-                      <motion.div className="group-hover/card:block hidden absolute inset-0 w-full h-full bg-black/40 z-10 transition duration-500" />
-                      <motion.div
-                        variants={variants}
-                        className="h-full w-full relative bg-gray-50 dark:bg-black"
-                        transition={{
-                          duration: 0.2,
-                          ease: "easeOut",
-                        }}
-                      >
-                        <img
-                          alt="hehe"
-                          className={cn(
-                            "h-[25rem] w-full object-cover scale-[1.15]"
-                          )}
-                          src={hotel?.main_picture}
-                        />
-                      </motion.div>
-                      <motion.div
-                        variants={textVariants}
-                        transition={{
-                          duration: 0.5,
-                          ease: "easeOut",
-                        }}
-                        className={cn(
-                          "text-white absolute bottom-4 left-4 z-20"
-                        )}
-                      >
-                        <h1 className="font-semibold text-xl">
-                          {hotel.location}
-                        </h1>
-                        <p className="inline text-sm">NPR {hotel.leastPrice}</p>{" "}
-                        -{" "}
-                        <p className="inline text-sm">
-                          NPR {hotel.mostExpensivePrice}
-                        </p>
-                      </motion.div>
-                    </motion.div>
-                  </AnimatePresence>
-                </motion.div>
-                <div className="pr-5 pl-5 pt-5 pb-10 ">
-                  <div className="border py-1 px-2 rounded-md w-fit text-sm border-violet-950 text-violet-900 font-semibold flex gap-1 items-center">
-                    <FaStar className="text-yellow-400 " />
-                    <p> {hotel.ratings} star hotel</p>
+              <div className="bg-white border border-gray-200 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden group">
+                {/* Image Container */}
+                <div className="relative overflow-hidden">
+                  <img
+                    alt={hotel.hotel_name}
+                    className="h-48 sm:h-56 lg:h-80 w-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    src={hotel?.main_picture}
+                  />
+                  {/* Price Overlay */}
+                  <div className="absolute bottom-3 left-3 bg-white/90 backdrop-blur-sm rounded-lg px-3 py-1.5 shadow-md">
+                    <div className="flex items-center gap-1 text-sm font-semibold text-gray-800">
+                      <span className="text-xs text-gray-600">NPR</span>
+                      <span>{hotel.leastPrice}</span>
+                      <span className="text-gray-400">-</span>
+                      <span>{hotel.mostExpensivePrice}</span>
+                    </div>
                   </div>
-                  <div className="flex flex-col mt-2">
-                    <div className="flex flex-col">
-                      <p className="text-violet-950 text-2xl font-semibold ">
-                        {hotel.hotel_name}
-                      </p>
-                      {/* <div className="p-2 rounded-lg bg-violet-950 text-white font-semibold w-fit mt-2">
-                        <p>4.5</p>
-                      </div> */}
-                      <p className="text-xs text-black  tracking-wide mt-1">
-                        {hotel.hotel_reviews_ratings}/5 - Excellent (
-                        {hotel.hotel_reviews.length} reviews)
-                      </p>
+                  {/* Location Badge */}
+                  <div className="absolute top-3 right-3 bg-violet-950/90 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-sm font-medium">
+                    {hotel.location}
+                  </div>
+                </div>
+
+                {/* Content Container */}
+                <div className="p-4 sm:p-5 lg:p-6">
+                  {/* Rating Badge */}
+                  <div className="inline-flex items-center gap-1.5 border border-violet-200 bg-violet-50 text-violet-900 font-semibold px-3 py-1.5 rounded-lg text-sm mb-3">
+                    <FaStar className="text-yellow-400 text-xs" />
+                    <span>{hotel.ratings} star hotel</span>
+                  </div>
+
+                  {/* Hotel Name and Reviews */}
+                  <div className="mb-4">
+                    <h3 className="text-violet-950 text-xl sm:text-2xl font-bold mb-2 line-clamp-1">
+                      {hotel.hotel_name}
+                    </h3>
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <span className="font-semibold text-gray-800">
+                        {hotel.hotel_reviews_ratings}/5
+                      </span>
+                      <span>•</span>
+                      <span>Excellent</span>
+                      <span>•</span>
+                      <span>({hotel.hotel_reviews.length} reviews)</span>
                     </div>
-                    <div className="flex gap-6 items-center">
-                      {hotel.hotel_amenities?.slice(0, 6).map((amen, index) => (
-                        <div
-                          key={index}
-                          className="flex  text-sm font-semibold mt-3  justify-between "
-                        >
-                          <div className="flex gap-1 items-center">
-                            {amenityIcons[amen]} {amen}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+                  </div>
+
+                  {/* Amenities */}
+                  <div className="flex flex-wrap gap-2 sm:gap-3">
+                    {hotel.hotel_amenities?.slice(0, 4).map((amen, index) => (
+                      <div
+                        key={index}
+                        className="flex items-center gap-1.5 bg-gray-50 text-gray-700 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium"
+                      >
+                        <span className="text-violet-600">
+                          {amenityIcons[amen]}
+                        </span>
+                        <span className="hidden sm:inline">{amen}</span>
+                      </div>
+                    ))}
+                    {hotel.hotel_amenities?.length > 4 && (
+                      <div className="flex items-center justify-center bg-gray-100 text-gray-600 px-2.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium">
+                        +{hotel.hotel_amenities.length - 4} more
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>
             </Link>
           ))
         ) : (
-          <p>No hotels found</p>
+          <div className="col-span-full text-center py-8">
+            <p className="text-gray-500 text-lg">No hotels found</p>
+          </div>
         )}
       </div>
       {hotels?.length > 4 && (
-        <div className="flex justify-center items-center cursor-pointer mt-10">
+        <div className="flex justify-center items-center mt-8 sm:mt-10 lg:mt-12">
           <Link
             to={`/filterHotels`}
-            className="p-2 bg-violet-950 text-white fonst-semibold transform hover:scale-105 transition-transform duration-300 ease-in"
+            className="inline-flex items-center gap-2 bg-violet-950 hover:bg-violet-800 text-white font-semibold px-6 py-3 rounded-lg transform hover:scale-105 transition-all duration-300 ease-in-out shadow-md hover:shadow-lg"
           >
-            <p>Load more</p>
+            <span>View All Hotels</span>
           </Link>
         </div>
       )}
